@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Gem Stone Prediction</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="carat">Carat:</label>
+      <input type="number" id="carat" formControlName="carat" required>
+    </div>
+    <div class="form-group">
+      <label for="cut">Cut:</label>
+      <input type="text" id="cut" formControlName="cut" required>
+    </div>
+    <div class="form-group">
+      <label for="color">Color:</label>
+      <input type="text" id="color" formControlName="color" required>
+    </div>
+    <div class="form-group">
+      <label for="clarity">Clarity:</label>
+      <input type="text" id="clarity" formControlName="clarity" required>
+    </div>
+    <div class="form-group">
+      <label for="depth">Depth:</label>
+      <input type="number" id="depth" formControlName="depth" required>
+    </div>
+    <div class="form-group">
+      <label for="table">Table:</label>
+      <input type="number" id="table" formControlName="table" required>
+    </div>
+    <div class="form-group">
+      <label for="length">Length:</label>
+      <input type="number" id="length" formControlName="length" required>
+    </div>
+    <div class="form-group">
+      <label for="width">Width:</label>
+      <input type="number" id="width" formControlName="width" required>
+    </div>
+    <div class="form-group">
+      <label for="height">Height:</label>
+      <input type="number" id="height" formControlName="height" required>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>
