@@ -4,6 +4,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material/input';
 import { FlaskService } from '../../flask.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class PredictionComponent {
   form!: FormGroup;
 
   constructor(private flaskService: FlaskService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       carat: ['', Validators.required],
@@ -35,8 +37,8 @@ export class PredictionComponent {
     if (this.form.valid) {
       this.flaskService.predictDiamond(this.form.value).subscribe(
         (response) => {
-          // Handle response as needed
-          console.log('Prediction:', response.prediction);
+          this.router.navigate(['/result'], { state: { prediction: response.prediction } });
+         console.log('Prediction:', response.prediction);
         },
         (error) => {
           console.log('Error:', error);
